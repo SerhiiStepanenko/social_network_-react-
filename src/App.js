@@ -1,24 +1,41 @@
 import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import About from './components/About/About';
+import MyPosts from './components/MyPosts/MyPosts';
+import Footer from './components/Footer/Footer';
+import Messages from './components/Messages/Messages';
+import Friends from './components/Friends/Friends';
+import Photos from './components/Photos/Photos';
+import News from './components/News/News';
+import Community from './components/Community/Community';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <div className="wraper">
+          <Header />
+          <About />
+
+          <div className="wraperContent">
+            <Route
+              path='/home'
+              render={() => <MyPosts state={props.state.homePage} />} />
+            <Route
+              path='/messages'
+              render={() => <Messages state={props.state.messagesPage}/>} />
+            <Route path='/friends' component={Friends} />
+            <Route path='/photos' component={Photos} />
+            <Route path='/news' component={News} />
+            <Route path='/community' component={Community} />
+          </div>
+          <Footer />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

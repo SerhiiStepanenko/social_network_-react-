@@ -1,0 +1,11 @@
+.about{
+    grid-area: about;
+    background-color: blueviolet;
+    padding: 10px;
+    /* border: 1px solid black; */
+    height: 200px;
+}
+
+.itemsAbout{
+    font-family: 'Chango', cursive;
+}
